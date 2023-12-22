@@ -1,0 +1,16 @@
+common --show_timestamps
+common --color=yes
+
+build --verbose_failures
+
+build --spawn_strategy=local
+build --strategy=Genrule=local
+
+build --cxxopt=-std=c++17
+
+build:opt -c opt
+build:opt --copt=-march=native
+build:opt --copt=-O3
+
+build:opt-less -c opt
+build:opt-less --copt=-O3

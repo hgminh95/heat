@@ -1,0 +1,33 @@
+cc_library(
+    name = "heat_lib",
+    hdrs = [
+        "method.h",
+        "cpuinfo.h",
+        "mac_cpuinfo.h",
+    ],
+    srcs = glob([
+        "method.cpp",
+        "cpuinfo.cpp",
+        "methods/*.cpp",
+    ]),
+    alwayslink = 1,
+    include_prefix = "heat",
+    deps = [
+        "@com_github_google_glog//:glog",
+        "@smctemp//:smctemp",
+    ],
+)
+
+cc_binary(
+    name = "heat",
+    srcs = [
+        "heat.cpp",
+    ],
+    deps = [
+        ":heat_lib",
+        "@com_github_gflags_gflags//:gflags",
+    ],
+    linkopts = [
+        "-framework IOKit",
+    ],
+)

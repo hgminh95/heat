@@ -1,3 +1,6 @@
+/bazel-*
+result.txt
+
 # Prerequisites
 *.d
 
