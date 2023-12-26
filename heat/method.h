@@ -1,5 +1,7 @@
 #pragma once
 
+#include "lemire_pc/event_counter.h"
+
 #include <unordered_map>
 #include <string>
 #include <functional>
@@ -7,6 +9,8 @@
 #include <chrono>
 #include <thread>
 #include <atomic>
+
+#include <glog/logging.h>
 
 namespace heat {
 
@@ -21,15 +25,33 @@ struct IHeatMethod {
   }
 
   void Run(std::atomic<bool>& active) noexcept {
+    event_collector collector;
+
+    event_aggregate aggregate{};
+    bool in_active_period{false};
     while (!stop_) {
       if (active) {
+        if (!in_active_period) {
+          in_active_period = true;
+          collector.start();
+        }
         for (int i = 0; i < 100; ++i) {
           RunImpl();
         }
       } else {
+        if (in_active_period) {
+          in_active_period = false;
+          event_count allocate_count = collector.end();
+          aggregate << allocate_count;
+        }
+
         std::this_thread::sleep_for(std::chrono::seconds(1));
       }
     }
+    LOG(INFO) << "Elapsed: " << aggregate.elapsed_ns();
+    LOG(INFO) << "Instruction: " << aggregate.instructions();
+    LOG(INFO) << "Cycle: " << aggregate.cycles();
+    LOG(INFO) << "IPC: " << aggregate.instructions() / aggregate.cycles();
   }
 
   virtual void RunImpl() noexcept = 0;

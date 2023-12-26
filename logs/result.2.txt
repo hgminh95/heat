@@ -1,0 +1,1031 @@
+(12:33:17) [32mINFO: [0mCurrent date is 2023-12-25
+(12:33:17) [32mLoading:[0m 
+(12:33:17) [32mLoading:[0m 
+(12:33:17) [32mLoading:[0m 0 packages loaded
+(12:33:17) [32mAnalyzing:[0m target //heat:heat (0 packages loaded, 0 targets configured)
+(12:33:17) [32mINFO: [0mAnalyzed target //heat:heat (0 packages loaded, 0 targets configured).
+(12:33:17) [32mINFO: [0mFound 1 target...
+(12:33:17) [32m[0 / 1][0m [Prepa] BazelWorkspaceStatusAction stable-status.txt
+Target //heat:heat up-to-date:
+  bazel-bin/heat/heat
+(12:33:17) [32mINFO: [0mElapsed time: 0.064s, Critical Path: 0.00s
+(12:33:17) [32mINFO: [0m1 process: 1 internal.
+(12:33:17) [32mINFO:[0m Build completed successfully, 1 total action
+[0m+ set -e
++ set -o pipefail
++ llvm-objdump --disassemble-symbols=__ZN4heat4Empty7RunImplEv -M intel bazel-bin/heat/heat
+
+bazel-bin/heat/heat:	file format mach-o arm64
+llvm-objdump: warning: 'bazel-bin/heat/heat': failed to disassemble missing symbol __ZN4heat4Empty7RunImplEv
++ llvm-objdump --disassemble-symbols=__ZN4heat4Simple7RunImplEv -M intel bazel-bin/heat/heat
+
+bazel-bin/heat/heat:	file format mach-o arm64
+llvm-objdump: warning: 'bazel-bin/heat/heat': failed to disassemble missing symbol __ZN4heat4Simple7RunImplEv
++ llvm-objdump --disassemble-symbols=__ZN4heat4Simd7RunImplEv -M intel bazel-bin/heat/heat
+
+bazel-bin/heat/heat:	file format mach-o arm64
+llvm-objdump: warning: 'bazel-bin/heat/heat': failed to disassemble missing symbol __ZN4heat4Simd7RunImplEv
++ llvm-objdump --disassemble-symbols=__ZN4heat17ArithmeticInteger7RunImplEv -M intel bazel-bin/heat/heat
+
+bazel-bin/heat/heat:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+000000010000a378 <__ZN4heat17ArithmeticInteger7RunImplEv>:
+10000a378: a9bf7bfd    	stp	x29, x30, [sp, #-0x10]!
+10000a37c: 910003fd    	mov	x29, sp
+10000a380: d0000160    	adrp	x0, 0x100038000 <__ZN3fLI11FLAGS_coresE>
+10000a384: 9103c000    	add	x0, x0, #0xf0
+10000a388: f9400008    	ldr	x8, [x0]
+10000a38c: d63f0100    	blr	x8
+10000a390: aa0003e8    	mov	x8, x0
+10000a394: b940000c    	ldr	w12, [x0]
+10000a398: 7100019f    	cmp	w12, #0x0
+10000a39c: 1a8ca58d    	cinc	w13, w12, lt
+10000a3a0: d0000160    	adrp	x0, 0x100038000 <__ZN3fLI11FLAGS_coresE>
+10000a3a4: 91042000    	add	x0, x0, #0x108
+10000a3a8: f9400009    	ldr	x9, [x0]
+10000a3ac: d63f0120    	blr	x9
+10000a3b0: aa0003e9    	mov	x9, x0
+10000a3b4: b940000e    	ldr	w14, [x0]
+10000a3b8: d0000160    	adrp	x0, 0x100038000 <__ZN3fLI11FLAGS_coresE>
+10000a3bc: 9104e000    	add	x0, x0, #0x138
+10000a3c0: f940000a    	ldr	x10, [x0]
+10000a3c4: 1ace0d8f    	sdiv	w15, w12, w14
+10000a3c8: d63f0140    	blr	x10
+10000a3cc: aa0003ea    	mov	x10, x0
+10000a3d0: b9400001    	ldr	w1, [x0]
+10000a3d4: d0000160    	adrp	x0, 0x100038000 <__ZN3fLI11FLAGS_coresE>
+10000a3d8: 91054000    	add	x0, x0, #0x150
+10000a3dc: f940000b    	ldr	x11, [x0]
+10000a3e0: d63f0160    	blr	x11
+10000a3e4: aa0003eb    	mov	x11, x0
+10000a3e8: b9400002    	ldr	w2, [x0]
+10000a3ec: 0b8d058c    	add	w12, w12, w13, asr #1
+10000a3f0: 0b0f018c    	add	w12, w12, w15
+10000a3f4: 4b01018c    	sub	w12, w12, w1
+10000a3f8: 0b02018c    	add	w12, w12, w2
+10000a3fc: b900010c    	str	w12, [x8]
+10000a400: 4b0e03e8    	neg	w8, w14
+10000a404: b9000128    	str	w8, [x9]
+10000a408: 531d7028    	lsl	w8, w1, #3
+10000a40c: 4b010108    	sub	w8, w8, w1
+10000a410: d0000160    	adrp	x0, 0x100038000 <__ZN3fLI11FLAGS_coresE>
+10000a414: 91048000    	add	x0, x0, #0x120
+10000a418: f9400009    	ldr	x9, [x0]
+10000a41c: d63f0120    	blr	x9
+10000a420: b9400009    	ldr	w9, [x0]
+10000a424: 0b080128    	add	w8, w9, w8
+10000a428: 1ac80d28    	sdiv	w8, w9, w8
+10000a42c: b9000008    	str	w8, [x0]
+10000a430: 1ac20c28    	sdiv	w8, w1, w2
+10000a434: 1b028508    	msub	w8, w8, w2, w1
+10000a438: 0b010508    	add	w8, w8, w1, lsl #1
+10000a43c: 1b017d08    	mul	w8, w8, w1
+10000a440: b9000148    	str	w8, [x10]
+10000a444: 11000c48    	add	w8, w2, #0x3
+10000a448: b9000168    	str	w8, [x11]
+10000a44c: a8c17bfd    	ldp	x29, x30, [sp], #0x10
+10000a450: d65f03c0    	ret
++ llvm-objdump --disassemble-symbols=__ZN4heat17ArithmeticFloat7RunImplEv -M intel bazel-bin/heat/heat
+
+bazel-bin/heat/heat:	file format mach-o arm64
+llvm-objdump: warning: 'bazel-bin/heat/heat': failed to disassemble missing symbol __ZN4heat17ArithmeticFloat7RunImplEv
++ llvm-objdump --disassemble-symbols=__ZN4heat4SimdILm16EE7RunImplEv -M intel bazel-bin/heat/heat
+
+bazel-bin/heat/heat:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+000000010000b598 <__ZN4heat4SimdILm16EE7RunImplEv>:
+10000b598: f9400808    	ldr	x8, [x0, #0x10]
+10000b59c: f940140a    	ldr	x10, [x0, #0x28]
+10000b5a0: f9402009    	ldr	x9, [x0, #0x40]
+10000b5a4: 9101010d    	add	x13, x8, #0x40
+10000b5a8: 9101014e    	add	x14, x10, #0x40
+10000b5ac: 9101012c    	add	x12, x9, #0x40
+10000b5b0: eb0c011f    	cmp	x8, x12
+10000b5b4: fa4d3122    	ccmp	x9, x13, #0x2, lo
+10000b5b8: 1a9f27eb    	cset	w11, lo
+10000b5bc: eb0c015f    	cmp	x10, x12
+10000b5c0: fa4e3122    	ccmp	x9, x14, #0x2, lo
+10000b5c4: 1a9f27ec    	cset	w12, lo
+10000b5c8: eb0d015f    	cmp	x10, x13
+10000b5cc: fa4e3102    	ccmp	x8, x14, #0x2, lo
+10000b5d0: 54000cc3    	b.lo	0x10000b768 <__ZN4heat4SimdILm16EE7RunImplEv+0x1d0>
+10000b5d4: 37000cab    	tbnz	w11, #0x0, 0x10000b768 <__ZN4heat4SimdILm16EE7RunImplEv+0x1d0>
+10000b5d8: 35000c8c    	cbnz	w12, 0x10000b768 <__ZN4heat4SimdILm16EE7RunImplEv+0x1d0>
+10000b5dc: ad400540    	ldp	q0, q1, [x10]
+10000b5e0: 0e0c3c0b    	mov.s	w11, v0[1]
+10000b5e4: ad400903    	ldp	q3, q2, [x8]
+10000b5e8: 0e0c3c6c    	mov.s	w12, v3[1]
+10000b5ec: 1acb098b    	udiv	w11, w12, w11
+10000b5f0: 1e26000c    	fmov	w12, s0
+10000b5f4: 0e143c6d    	mov.s	w13, v3[2]
+10000b5f8: 0e1c3c6e    	mov.s	w14, v3[3]
+10000b5fc: 1e26006f    	fmov	w15, s3
+10000b600: 1acc09ec    	udiv	w12, w15, w12
+10000b604: 1e270183    	fmov	s3, w12
+10000b608: 4e0c1d63    	mov.s	v3[1], w11
+10000b60c: 0e143c0b    	mov.s	w11, v0[2]
+10000b610: 1acb09ab    	udiv	w11, w13, w11
+10000b614: 4e141d63    	mov.s	v3[2], w11
+10000b618: 0e1c3c0b    	mov.s	w11, v0[3]
+10000b61c: 1acb09cb    	udiv	w11, w14, w11
+10000b620: 4e1c1d63    	mov.s	v3[3], w11
+10000b624: ad411504    	ldp	q4, q5, [x8, #0x20]
+10000b628: ad411d46    	ldp	q6, q7, [x10, #0x20]
+10000b62c: 0e0c3ceb    	mov.s	w11, v7[1]
+10000b630: 0e0c3cac    	mov.s	w12, v5[1]
+10000b634: 1acb098b    	udiv	w11, w12, w11
+10000b638: 0e143cec    	mov.s	w12, v7[2]
+10000b63c: 0e143cad    	mov.s	w13, v5[2]
+10000b640: 0e1c3cee    	mov.s	w14, v7[3]
+10000b644: 1e2600ef    	fmov	w15, s7
+10000b648: 0e1c3cb0    	mov.s	w16, v5[3]
+10000b64c: 1e2600b1    	fmov	w17, s5
+10000b650: 1acf0a2f    	udiv	w15, w17, w15
+10000b654: 1e2701e5    	fmov	s5, w15
+10000b658: 0e0c3c2f    	mov.s	w15, v1[1]
+10000b65c: 4e0c1d65    	mov.s	v5[1], w11
+10000b660: 0e0c3c4b    	mov.s	w11, v2[1]
+10000b664: 1acf096b    	udiv	w11, w11, w15
+10000b668: ad404127    	ldp	q7, q16, [x9]
+10000b66c: 4ea384e3    	add.4s	v3, v7, v3
+10000b670: 4ea31c71    	mov.16b	v17, v3
+10000b674: 6ea094f1    	mls.4s	v17, v7, v0
+10000b678: 1acc09ac    	udiv	w12, w13, w12
+10000b67c: 1e26002d    	fmov	w13, s1
+10000b680: 4e141d85    	mov.s	v5[2], w12
+10000b684: 0e143c4c    	mov.s	w12, v2[2]
+10000b688: 1ace0a0e    	udiv	w14, w16, w14
+10000b68c: 0e1c3c4f    	mov.s	w15, v2[3]
+10000b690: 4e1c1dc5    	mov.s	v5[3], w14
+10000b694: 1e26004e    	fmov	w14, s2
+10000b698: 1acd09cd    	udiv	w13, w14, w13
+10000b69c: ad410920    	ldp	q0, q2, [x9, #0x20]
+10000b6a0: 4ea58445    	add.4s	v5, v2, v5
+10000b6a4: 3dc00d52    	ldr	q18, [x10, #0x30]
+10000b6a8: 4ea51cb3    	mov.16b	v19, v5
+10000b6ac: 6eb29453    	mls.4s	v19, v2, v18
+10000b6b0: 1e2701a2    	fmov	s2, w13
+10000b6b4: 4e0c1d62    	mov.s	v2[1], w11
+10000b6b8: 0e143c2b    	mov.s	w11, v1[2]
+10000b6bc: 1acb098b    	udiv	w11, w12, w11
+10000b6c0: 4e141d62    	mov.s	v2[2], w11
+10000b6c4: 0e1c3c2b    	mov.s	w11, v1[3]
+10000b6c8: 1acb09eb    	udiv	w11, w15, w11
+10000b6cc: 4e1c1d62    	mov.s	v2[3], w11
+10000b6d0: 4ea28602    	add.4s	v2, v16, v2
+10000b6d4: 4ea21c52    	mov.16b	v18, v2
+10000b6d8: 6ea19612    	mls.4s	v18, v16, v1
+10000b6dc: 6ea0b8e1    	neg.4s	v1, v7
+10000b6e0: 4eb19461    	mla.4s	v1, v3, v17
+10000b6e4: ad000903    	stp	q3, q2, [x8]
+10000b6e8: 6ea0ba03    	neg.4s	v3, v16
+10000b6ec: 0e0c3c8b    	mov.s	w11, v4[1]
+10000b6f0: 4eb29443    	mla.4s	v3, v2, v18
+10000b6f4: 0e143c8c    	mov.s	w12, v4[2]
+10000b6f8: 0e1c3c8d    	mov.s	w13, v4[3]
+10000b6fc: 1e26008e    	fmov	w14, s4
+10000b700: 0e0c3ccf    	mov.s	w15, v6[1]
+10000b704: 1acf096b    	udiv	w11, w11, w15
+10000b708: 1e2600cf    	fmov	w15, s6
+10000b70c: 1acf09ce    	udiv	w14, w14, w15
+10000b710: ad004951    	stp	q17, q18, [x10]
+10000b714: 1e2701c2    	fmov	s2, w14
+10000b718: 4e0c1d62    	mov.s	v2[1], w11
+10000b71c: 0e143ccb    	mov.s	w11, v6[2]
+10000b720: 1acb098b    	udiv	w11, w12, w11
+10000b724: 4e141d62    	mov.s	v2[2], w11
+10000b728: 0e1c3ccb    	mov.s	w11, v6[3]
+10000b72c: ad000d21    	stp	q1, q3, [x9]
+10000b730: 1acb09ab    	udiv	w11, w13, w11
+10000b734: 4e1c1d62    	mov.s	v2[3], w11
+10000b738: 4ea28401    	add.4s	v1, v0, v2
+10000b73c: 4ea11c22    	mov.16b	v2, v1
+10000b740: 6ea69402    	mls.4s	v2, v0, v6
+10000b744: 6ea0b800    	neg.4s	v0, v0
+10000b748: 4ea29420    	mla.4s	v0, v1, v2
+10000b74c: ad011501    	stp	q1, q5, [x8, #0x20]
+10000b750: ad014d42    	stp	q2, q19, [x10, #0x20]
+10000b754: 3dc00d21    	ldr	q1, [x9, #0x30]
+10000b758: 6ea0b821    	neg.4s	v1, v1
+10000b75c: 4eb394a1    	mla.4s	v1, v5, v19
+10000b760: ad010520    	stp	q0, q1, [x9, #0x20]
+10000b764: 14000014    	b	0x10000b7b4 <__ZN4heat4SimdILm16EE7RunImplEv+0x21c>
+10000b768: d280000b    	mov	x11, #0x0               ; =0
+10000b76c: b86b690c    	ldr	w12, [x8, x11]
+10000b770: b86b694d    	ldr	w13, [x10, x11]
+10000b774: 1acd098c    	udiv	w12, w12, w13
+10000b778: b86b692d    	ldr	w13, [x9, x11]
+10000b77c: 0b0c01ac    	add	w12, w13, w12
+10000b780: b82b690c    	str	w12, [x8, x11]
+10000b784: b86b694d    	ldr	w13, [x10, x11]
+10000b788: b86b692e    	ldr	w14, [x9, x11]
+10000b78c: 1b0db1cc    	msub	w12, w14, w13, w12
+10000b790: b82b694c    	str	w12, [x10, x11]
+10000b794: b86b690d    	ldr	w13, [x8, x11]
+10000b798: b86b692e    	ldr	w14, [x9, x11]
+10000b79c: 4b0e03ee    	neg	w14, w14
+10000b7a0: 1b0c39ac    	madd	w12, w13, w12, w14
+10000b7a4: b82b692c    	str	w12, [x9, x11]
+10000b7a8: 9100116b    	add	x11, x11, #0x4
+10000b7ac: f101017f    	cmp	x11, #0x40
+10000b7b0: 54fffde1    	b.ne	0x10000b76c <__ZN4heat4SimdILm16EE7RunImplEv+0x1d4>
+10000b7b4: d65f03c0    	ret
++ llvm-objdump --disassemble-symbols=__ZN4heat4SimdILm32EE7RunImplEv -M intel bazel-bin/heat/heat
+
+bazel-bin/heat/heat:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+000000010000b99c <__ZN4heat4SimdILm32EE7RunImplEv>:
+10000b99c: f9400808    	ldr	x8, [x0, #0x10]
+10000b9a0: f940140a    	ldr	x10, [x0, #0x28]
+10000b9a4: f9402009    	ldr	x9, [x0, #0x40]
+10000b9a8: 9102010d    	add	x13, x8, #0x80
+10000b9ac: 9102014e    	add	x14, x10, #0x80
+10000b9b0: 9102012c    	add	x12, x9, #0x80
+10000b9b4: eb0c011f    	cmp	x8, x12
+10000b9b8: fa4d3122    	ccmp	x9, x13, #0x2, lo
+10000b9bc: 1a9f27eb    	cset	w11, lo
+10000b9c0: eb0c015f    	cmp	x10, x12
+10000b9c4: fa4e3122    	ccmp	x9, x14, #0x2, lo
+10000b9c8: 1a9f27ec    	cset	w12, lo
+10000b9cc: eb0d015f    	cmp	x10, x13
+10000b9d0: fa4e3102    	ccmp	x8, x14, #0x2, lo
+10000b9d4: 54001943    	b.lo	0x10000bcfc <__ZN4heat4SimdILm32EE7RunImplEv+0x360>
+10000b9d8: 3700192b    	tbnz	w11, #0x0, 0x10000bcfc <__ZN4heat4SimdILm32EE7RunImplEv+0x360>
+10000b9dc: 3500190c    	cbnz	w12, 0x10000bcfc <__ZN4heat4SimdILm32EE7RunImplEv+0x360>
+10000b9e0: ad400540    	ldp	q0, q1, [x10]
+10000b9e4: 0e0c3c0b    	mov.s	w11, v0[1]
+10000b9e8: ad400903    	ldp	q3, q2, [x8]
+10000b9ec: 0e0c3c6c    	mov.s	w12, v3[1]
+10000b9f0: 1acb098b    	udiv	w11, w12, w11
+10000b9f4: 0e143c6c    	mov.s	w12, v3[2]
+10000b9f8: 0e1c3c6d    	mov.s	w13, v3[3]
+10000b9fc: 1e26000e    	fmov	w14, s0
+10000ba00: 1e26006f    	fmov	w15, s3
+10000ba04: 1ace09ee    	udiv	w14, w15, w14
+10000ba08: 1e2701c4    	fmov	s4, w14
+10000ba0c: 4e0c1d64    	mov.s	v4[1], w11
+10000ba10: 0e143c0b    	mov.s	w11, v0[2]
+10000ba14: 1acb098b    	udiv	w11, w12, w11
+10000ba18: 4e141d64    	mov.s	v4[2], w11
+10000ba1c: 0e1c3c0b    	mov.s	w11, v0[3]
+10000ba20: 1acb09ab    	udiv	w11, w13, w11
+10000ba24: 4e1c1d64    	mov.s	v4[3], w11
+10000ba28: 0e0c3c2b    	mov.s	w11, v1[1]
+10000ba2c: ad411903    	ldp	q3, q6, [x8, #0x20]
+10000ba30: ad411d45    	ldp	q5, q7, [x10, #0x20]
+10000ba34: 0e0c3cec    	mov.s	w12, v7[1]
+10000ba38: 0e0c3ccd    	mov.s	w13, v6[1]
+10000ba3c: 1acc09ac    	udiv	w12, w13, w12
+10000ba40: 0e143ced    	mov.s	w13, v7[2]
+10000ba44: 0e143cce    	mov.s	w14, v6[2]
+10000ba48: 0e1c3cef    	mov.s	w15, v7[3]
+10000ba4c: 1e2600f0    	fmov	w16, s7
+10000ba50: 0e1c3cd1    	mov.s	w17, v6[3]
+10000ba54: 1e2600c0    	fmov	w0, s6
+10000ba58: 1ad00810    	udiv	w16, w0, w16
+10000ba5c: 1e270206    	fmov	s6, w16
+10000ba60: 4e0c1d86    	mov.s	v6[1], w12
+10000ba64: 1acd09cc    	udiv	w12, w14, w13
+10000ba68: 4e141d86    	mov.s	v6[2], w12
+10000ba6c: 1acf0a2c    	udiv	w12, w17, w15
+10000ba70: 4e1c1d86    	mov.s	v6[3], w12
+10000ba74: ad419d51    	ldp	q17, q7, [x10, #0x30]
+10000ba78: 0e0c3cec    	mov.s	w12, v7[1]
+10000ba7c: ad424910    	ldp	q16, q18, [x8, #0x40]
+10000ba80: 0e0c3e0d    	mov.s	w13, v16[1]
+10000ba84: 1acc09ac    	udiv	w12, w13, w12
+10000ba88: 0e143ced    	mov.s	w13, v7[2]
+10000ba8c: 0e143e0e    	mov.s	w14, v16[2]
+10000ba90: 0e1c3cef    	mov.s	w15, v7[3]
+10000ba94: 0e1c3e10    	mov.s	w16, v16[3]
+10000ba98: 1e2600f1    	fmov	w17, s7
+10000ba9c: 1e260200    	fmov	w0, s16
+10000baa0: 1ad10811    	udiv	w17, w0, w17
+10000baa4: 1e270227    	fmov	s7, w17
+10000baa8: 4e0c1d87    	mov.s	v7[1], w12
+10000baac: 1acd09cc    	udiv	w12, w14, w13
+10000bab0: 4e141d87    	mov.s	v7[2], w12
+10000bab4: 1acf0a0c    	udiv	w12, w16, w15
+10000bab8: 4e1c1d87    	mov.s	v7[3], w12
+10000babc: ad424d50    	ldp	q16, q19, [x10, #0x40]
+10000bac0: 0e0c3e6c    	mov.s	w12, v19[1]
+10000bac4: 0e0c3e4d    	mov.s	w13, v18[1]
+10000bac8: 1acc09ac    	udiv	w12, w13, w12
+10000bacc: 0e143e6d    	mov.s	w13, v19[2]
+10000bad0: 0e1c3e6e    	mov.s	w14, v19[3]
+10000bad4: 1e26026f    	fmov	w15, s19
+10000bad8: 0e143e50    	mov.s	w16, v18[2]
+10000badc: 0e1c3e51    	mov.s	w17, v18[3]
+10000bae0: 1e260240    	fmov	w0, s18
+10000bae4: 1acf080f    	udiv	w15, w0, w15
+10000bae8: 0e0c3c40    	mov.s	w0, v2[1]
+10000baec: 1e2701f2    	fmov	s18, w15
+10000baf0: 4e0c1d92    	mov.s	v18[1], w12
+10000baf4: 1acd0a0c    	udiv	w12, w16, w13
+10000baf8: 4e141d92    	mov.s	v18[2], w12
+10000bafc: 1ace0a2c    	udiv	w12, w17, w14
+10000bb00: 4e1c1d92    	mov.s	v18[3], w12
+10000bb04: 1acb080b    	udiv	w11, w0, w11
+10000bb08: ad42d153    	ldp	q19, q20, [x10, #0x50]
+10000bb0c: 0e0c3e8c    	mov.s	w12, v20[1]
+10000bb10: ad435915    	ldp	q21, q22, [x8, #0x60]
+10000bb14: 0e0c3ead    	mov.s	w13, v21[1]
+10000bb18: 1acc09ac    	udiv	w12, w13, w12
+10000bb1c: 0e143e8d    	mov.s	w13, v20[2]
+10000bb20: 0e143eae    	mov.s	w14, v21[2]
+10000bb24: 0e1c3e8f    	mov.s	w15, v20[3]
+10000bb28: 0e1c3eb0    	mov.s	w16, v21[3]
+10000bb2c: 1e260291    	fmov	w17, s20
+10000bb30: 1e2602a0    	fmov	w0, s21
+10000bb34: 1ad10811    	udiv	w17, w0, w17
+10000bb38: 1e270234    	fmov	s20, w17
+10000bb3c: 4e0c1d94    	mov.s	v20[1], w12
+10000bb40: 1acd09cc    	udiv	w12, w14, w13
+10000bb44: 4e141d94    	mov.s	v20[2], w12
+10000bb48: 1acf0a0c    	udiv	w12, w16, w15
+10000bb4c: 4e1c1d94    	mov.s	v20[3], w12
+10000bb50: ad435d55    	ldp	q21, q23, [x10, #0x60]
+10000bb54: 0e0c3eec    	mov.s	w12, v23[1]
+10000bb58: 0e0c3ecd    	mov.s	w13, v22[1]
+10000bb5c: 1acc09ac    	udiv	w12, w13, w12
+10000bb60: 0e143eed    	mov.s	w13, v23[2]
+10000bb64: 0e1c3eee    	mov.s	w14, v23[3]
+10000bb68: 1e2602ef    	fmov	w15, s23
+10000bb6c: 0e143ed0    	mov.s	w16, v22[2]
+10000bb70: 0e1c3ed1    	mov.s	w17, v22[3]
+10000bb74: 1e2602c0    	fmov	w0, s22
+10000bb78: 1acf080f    	udiv	w15, w0, w15
+10000bb7c: 1e2701f6    	fmov	s22, w15
+10000bb80: 1e26002f    	fmov	w15, s1
+10000bb84: 4e0c1d96    	mov.s	v22[1], w12
+10000bb88: 0e143c4c    	mov.s	w12, v2[2]
+10000bb8c: 1acd0a0d    	udiv	w13, w16, w13
+10000bb90: 0e1c3c50    	mov.s	w16, v2[3]
+10000bb94: 4e141db6    	mov.s	v22[2], w13
+10000bb98: 1e26004d    	fmov	w13, s2
+10000bb9c: 1acf09ad    	udiv	w13, w13, w15
+10000bba0: 1ace0a2e    	udiv	w14, w17, w14
+10000bba4: ad405d22    	ldp	q2, q23, [x9]
+10000bba8: 4ea48444    	add.4s	v4, v2, v4
+10000bbac: ad416538    	ldp	q24, q25, [x9, #0x20]
+10000bbb0: 4ea68726    	add.4s	v6, v25, v6
+10000bbb4: 4ea61cda    	mov.16b	v26, v6
+10000bbb8: 6eb1973a    	mls.4s	v26, v25, v17
+10000bbbc: ad41e531    	ldp	q17, q25, [x9, #0x30]
+10000bbc0: 4ea78727    	add.4s	v7, v25, v7
+10000bbc4: 4ea71cfb    	mov.16b	v27, v7
+10000bbc8: 6eb0973b    	mls.4s	v27, v25, v16
+10000bbcc: ad426530    	ldp	q16, q25, [x9, #0x40]
+10000bbd0: 4eb28732    	add.4s	v18, v25, v18
+10000bbd4: 4eb21e5c    	mov.16b	v28, v18
+10000bbd8: 6eb3973c    	mls.4s	v28, v25, v19
+10000bbdc: ad42e533    	ldp	q19, q25, [x9, #0x50]
+10000bbe0: 4eb48734    	add.4s	v20, v25, v20
+10000bbe4: 4eb41e9d    	mov.16b	v29, v20
+10000bbe8: 6eb5973d    	mls.4s	v29, v25, v21
+10000bbec: 4e1c1dd6    	mov.s	v22[3], w14
+10000bbf0: ad436535    	ldp	q21, q25, [x9, #0x60]
+10000bbf4: 4eb68736    	add.4s	v22, v25, v22
+10000bbf8: 3dc01d5e    	ldr	q30, [x10, #0x70]
+10000bbfc: 4eb61edf    	mov.16b	v31, v22
+10000bc00: 6ebe973f    	mls.4s	v31, v25, v30
+10000bc04: 1e2701b9    	fmov	s25, w13
+10000bc08: 4e0c1d79    	mov.s	v25[1], w11
+10000bc0c: 4ea41c9e    	mov.16b	v30, v4
+10000bc10: 0e143c2b    	mov.s	w11, v1[2]
+10000bc14: 1acb098b    	udiv	w11, w12, w11
+10000bc18: 4e141d79    	mov.s	v25[2], w11
+10000bc1c: 6ea0945e    	mls.4s	v30, v2, v0
+10000bc20: 0e1c3c2b    	mov.s	w11, v1[3]
+10000bc24: 1acb0a0b    	udiv	w11, w16, w11
+10000bc28: 4e1c1d79    	mov.s	v25[3], w11
+10000bc2c: 4eb986e0    	add.4s	v0, v23, v25
+10000bc30: 4ea01c19    	mov.16b	v25, v0
+10000bc34: 6ea196f9    	mls.4s	v25, v23, v1
+10000bc38: 6ea0b841    	neg.4s	v1, v2
+10000bc3c: 4ebe9481    	mla.4s	v1, v4, v30
+10000bc40: ad000104    	stp	q4, q0, [x8]
+10000bc44: 6ea0bae2    	neg.4s	v2, v23
+10000bc48: 0e0c3c6b    	mov.s	w11, v3[1]
+10000bc4c: 0e143c6c    	mov.s	w12, v3[2]
+10000bc50: 4eb99402    	mla.4s	v2, v0, v25
+10000bc54: 0e1c3c6d    	mov.s	w13, v3[3]
+10000bc58: 1e26006e    	fmov	w14, s3
+10000bc5c: 0e0c3caf    	mov.s	w15, v5[1]
+10000bc60: 1acf096b    	udiv	w11, w11, w15
+10000bc64: 1e2600af    	fmov	w15, s5
+10000bc68: 1acf09ce    	udiv	w14, w14, w15
+10000bc6c: ad00655e    	stp	q30, q25, [x10]
+10000bc70: 1e2701c0    	fmov	s0, w14
+10000bc74: ad000921    	stp	q1, q2, [x9]
+10000bc78: 4e0c1d60    	mov.s	v0[1], w11
+10000bc7c: 0e143cab    	mov.s	w11, v5[2]
+10000bc80: 1acb098b    	udiv	w11, w12, w11
+10000bc84: 4e141d60    	mov.s	v0[2], w11
+10000bc88: 0e1c3cab    	mov.s	w11, v5[3]
+10000bc8c: 1acb09ab    	udiv	w11, w13, w11
+10000bc90: 4e1c1d60    	mov.s	v0[3], w11
+10000bc94: 4ea08700    	add.4s	v0, v24, v0
+10000bc98: 4ea01c01    	mov.16b	v1, v0
+10000bc9c: 6ea59701    	mls.4s	v1, v24, v5
+10000bca0: 6ea0bb02    	neg.4s	v2, v24
+10000bca4: 4ea19402    	mla.4s	v2, v0, v1
+10000bca8: ad011900    	stp	q0, q6, [x8, #0x20]
+10000bcac: 6ea0ba20    	neg.4s	v0, v17
+10000bcb0: 4eba94c0    	mla.4s	v0, v6, v26
+10000bcb4: ad016941    	stp	q1, q26, [x10, #0x20]
+10000bcb8: ad010122    	stp	q2, q0, [x9, #0x20]
+10000bcbc: 6ea0ba00    	neg.4s	v0, v16
+10000bcc0: 4ebb94e0    	mla.4s	v0, v7, v27
+10000bcc4: ad024907    	stp	q7, q18, [x8, #0x40]
+10000bcc8: 6ea0ba61    	neg.4s	v1, v19
+10000bccc: 4ebc9641    	mla.4s	v1, v18, v28
+10000bcd0: ad02715b    	stp	q27, q28, [x10, #0x40]
+10000bcd4: ad020520    	stp	q0, q1, [x9, #0x40]
+10000bcd8: 6ea0baa0    	neg.4s	v0, v21
+10000bcdc: 4ebd9680    	mla.4s	v0, v20, v29
+10000bce0: ad035914    	stp	q20, q22, [x8, #0x60]
+10000bce4: ad037d5d    	stp	q29, q31, [x10, #0x60]
+10000bce8: 3dc01d21    	ldr	q1, [x9, #0x70]
+10000bcec: 6ea0b821    	neg.4s	v1, v1
+10000bcf0: 4ebf96c1    	mla.4s	v1, v22, v31
+10000bcf4: ad030520    	stp	q0, q1, [x9, #0x60]
+10000bcf8: 14000014    	b	0x10000bd48 <__ZN4heat4SimdILm32EE7RunImplEv+0x3ac>
+10000bcfc: d280000b    	mov	x11, #0x0               ; =0
+10000bd00: b86b690c    	ldr	w12, [x8, x11]
+10000bd04: b86b694d    	ldr	w13, [x10, x11]
+10000bd08: 1acd098c    	udiv	w12, w12, w13
+10000bd0c: b86b692d    	ldr	w13, [x9, x11]
+10000bd10: 0b0c01ac    	add	w12, w13, w12
+10000bd14: b82b690c    	str	w12, [x8, x11]
+10000bd18: b86b694d    	ldr	w13, [x10, x11]
+10000bd1c: b86b692e    	ldr	w14, [x9, x11]
+10000bd20: 1b0db1cc    	msub	w12, w14, w13, w12
+10000bd24: b82b694c    	str	w12, [x10, x11]
+10000bd28: b86b690d    	ldr	w13, [x8, x11]
+10000bd2c: b86b692e    	ldr	w14, [x9, x11]
+10000bd30: 4b0e03ee    	neg	w14, w14
+10000bd34: 1b0c39ac    	madd	w12, w13, w12, w14
+10000bd38: b82b692c    	str	w12, [x9, x11]
+10000bd3c: 9100116b    	add	x11, x11, #0x4
+10000bd40: f102017f    	cmp	x11, #0x80
+10000bd44: 54fffde1    	b.ne	0x10000bd00 <__ZN4heat4SimdILm32EE7RunImplEv+0x364>
+10000bd48: d65f03c0    	ret
++ llvm-objdump --disassemble-symbols=__ZN4heat4SimdILm64EE7RunImplEv -M intel bazel-bin/heat/heat
+
+bazel-bin/heat/heat:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+000000010000bf30 <__ZN4heat4SimdILm64EE7RunImplEv>:
+10000bf30: d10243ff    	sub	sp, sp, #0x90
+10000bf34: 6d053bef    	stp	d15, d14, [sp, #0x50]
+10000bf38: 6d0633ed    	stp	d13, d12, [sp, #0x60]
+10000bf3c: 6d072beb    	stp	d11, d10, [sp, #0x70]
+10000bf40: 6d0823e9    	stp	d9, d8, [sp, #0x80]
+10000bf44: f9400808    	ldr	x8, [x0, #0x10]
+10000bf48: f940140a    	ldr	x10, [x0, #0x28]
+10000bf4c: f9402009    	ldr	x9, [x0, #0x40]
+10000bf50: 9104010d    	add	x13, x8, #0x100
+10000bf54: 9104014e    	add	x14, x10, #0x100
+10000bf58: 9104012c    	add	x12, x9, #0x100
+10000bf5c: eb0c011f    	cmp	x8, x12
+10000bf60: fa4d3122    	ccmp	x9, x13, #0x2, lo
+10000bf64: 1a9f27eb    	cset	w11, lo
+10000bf68: eb0c015f    	cmp	x10, x12
+10000bf6c: fa4e3122    	ccmp	x9, x14, #0x2, lo
+10000bf70: 1a9f27ec    	cset	w12, lo
+10000bf74: eb0d015f    	cmp	x10, x13
+10000bf78: fa4e3102    	ccmp	x8, x14, #0x2, lo
+10000bf7c: 54003503    	b.lo	0x10000c61c <__ZN4heat4SimdILm64EE7RunImplEv+0x6ec>
+10000bf80: 370034eb    	tbnz	w11, #0x0, 0x10000c61c <__ZN4heat4SimdILm64EE7RunImplEv+0x6ec>
+10000bf84: 350034cc    	cbnz	w12, 0x10000c61c <__ZN4heat4SimdILm64EE7RunImplEv+0x6ec>
+10000bf88: ad400d41    	ldp	q1, q3, [x10]
+10000bf8c: 0e0c3c2b    	mov.s	w11, v1[1]
+10000bf90: ad400900    	ldp	q0, q2, [x8]
+10000bf94: ad018fe2    	stp	q2, q3, [sp, #0x30]
+10000bf98: 0e0c3c0c    	mov.s	w12, v0[1]
+10000bf9c: 1acb098b    	udiv	w11, w12, w11
+10000bfa0: 1e26002c    	fmov	w12, s1
+10000bfa4: 0e143c0d    	mov.s	w13, v0[2]
+10000bfa8: 0e1c3c0e    	mov.s	w14, v0[3]
+10000bfac: 1e26000f    	fmov	w15, s0
+10000bfb0: 1acc09ec    	udiv	w12, w15, w12
+10000bfb4: 1e270180    	fmov	s0, w12
+10000bfb8: 4e0c1d60    	mov.s	v0[1], w11
+10000bfbc: 0e143c2b    	mov.s	w11, v1[2]
+10000bfc0: 1acb09ab    	udiv	w11, w13, w11
+10000bfc4: 4e141d60    	mov.s	v0[2], w11
+10000bfc8: 0e1c3c2b    	mov.s	w11, v1[3]
+10000bfcc: 1acb09cb    	udiv	w11, w14, w11
+10000bfd0: 4e1c1d60    	mov.s	v0[3], w11
+10000bfd4: ad0087e0    	stp	q0, q1, [sp, #0x10]
+10000bfd8: 3dc00d40    	ldr	q0, [x10, #0x30]
+10000bfdc: 0e0c3c0b    	mov.s	w11, v0[1]
+10000bfe0: ad419904    	ldp	q4, q6, [x8, #0x30]
+10000bfe4: 0e0c3c8c    	mov.s	w12, v4[1]
+10000bfe8: 1acb098b    	udiv	w11, w12, w11
+10000bfec: 0e143c0c    	mov.s	w12, v0[2]
+10000bff0: 0e143c8d    	mov.s	w13, v4[2]
+10000bff4: 0e1c3c0e    	mov.s	w14, v0[3]
+10000bff8: 0e1c3c8f    	mov.s	w15, v4[3]
+10000bffc: 1e260010    	fmov	w16, s0
+10000c000: 1e260091    	fmov	w17, s4
+10000c004: 1ad00a30    	udiv	w16, w17, w16
+10000c008: 1e270204    	fmov	s4, w16
+10000c00c: 4e0c1d64    	mov.s	v4[1], w11
+10000c010: 1acc09ab    	udiv	w11, w13, w12
+10000c014: 4e141d64    	mov.s	v4[2], w11
+10000c018: 1ace09eb    	udiv	w11, w15, w14
+10000c01c: 4e1c1d64    	mov.s	v4[3], w11
+10000c020: ad41814c    	ldp	q12, q0, [x10, #0x30]
+10000c024: 0e0c3c0b    	mov.s	w11, v0[1]
+10000c028: 3dc01510    	ldr	q16, [x8, #0x50]
+10000c02c: 0e0c3ccc    	mov.s	w12, v6[1]
+10000c030: 0e143c0d    	mov.s	w13, v0[2]
+10000c034: 0e1c3c0e    	mov.s	w14, v0[3]
+10000c038: 1acb098b    	udiv	w11, w12, w11
+10000c03c: 1e26000c    	fmov	w12, s0
+10000c040: 0e143ccf    	mov.s	w15, v6[2]
+10000c044: 0e1c3cd0    	mov.s	w16, v6[3]
+10000c048: 1e2600d1    	fmov	w17, s6
+10000c04c: 1acc0a2c    	udiv	w12, w17, w12
+10000c050: 1e270186    	fmov	s6, w12
+10000c054: 4e0c1d66    	mov.s	v6[1], w11
+10000c058: 1acd09eb    	udiv	w11, w15, w13
+10000c05c: 4e141d66    	mov.s	v6[2], w11
+10000c060: 1ace0a0b    	udiv	w11, w16, w14
+10000c064: 4e1c1d66    	mov.s	v6[3], w11
+10000c068: ad420147    	ldp	q7, q0, [x10, #0x40]
+10000c06c: 0e0c3c0b    	mov.s	w11, v0[1]
+10000c070: 0e0c3e0c    	mov.s	w12, v16[1]
+10000c074: 1acb098b    	udiv	w11, w12, w11
+10000c078: 0e143c0c    	mov.s	w12, v0[2]
+10000c07c: 0e143e0d    	mov.s	w13, v16[2]
+10000c080: 0e1c3c0e    	mov.s	w14, v0[3]
+10000c084: 1e26000f    	fmov	w15, s0
+10000c088: 0e1c3e10    	mov.s	w16, v16[3]
+10000c08c: 1e260211    	fmov	w17, s16
+10000c090: 1acf0a2f    	udiv	w15, w17, w15
+10000c094: 1e2701e3    	fmov	s3, w15
+10000c098: 4e0c1d63    	mov.s	v3[1], w11
+10000c09c: 1acc09ab    	udiv	w11, w13, w12
+10000c0a0: 4e141d63    	mov.s	v3[2], w11
+10000c0a4: 1ace0a0b    	udiv	w11, w16, w14
+10000c0a8: 4e1c1d63    	mov.s	v3[3], w11
+10000c0ac: ad42c152    	ldp	q18, q16, [x10, #0x50]
+10000c0b0: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c0b4: ad434d11    	ldp	q17, q19, [x8, #0x60]
+10000c0b8: 0e0c3e2c    	mov.s	w12, v17[1]
+10000c0bc: 1acb098b    	udiv	w11, w12, w11
+10000c0c0: 0e143e0c    	mov.s	w12, v16[2]
+10000c0c4: 0e143e2d    	mov.s	w13, v17[2]
+10000c0c8: 0e1c3e0e    	mov.s	w14, v16[3]
+10000c0cc: 0e1c3e2f    	mov.s	w15, v17[3]
+10000c0d0: 1e260210    	fmov	w16, s16
+10000c0d4: 1e260231    	fmov	w17, s17
+10000c0d8: 1ad00a30    	udiv	w16, w17, w16
+10000c0dc: 1e270211    	fmov	s17, w16
+10000c0e0: 4e0c1d71    	mov.s	v17[1], w11
+10000c0e4: 1acc09ab    	udiv	w11, w13, w12
+10000c0e8: 4e141d71    	mov.s	v17[2], w11
+10000c0ec: 1ace09eb    	udiv	w11, w15, w14
+10000c0f0: 4e1c1d71    	mov.s	v17[3], w11
+10000c0f4: ad43414f    	ldp	q15, q16, [x10, #0x60]
+10000c0f8: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c0fc: 0e0c3e6c    	mov.s	w12, v19[1]
+10000c100: 1acb098b    	udiv	w11, w12, w11
+10000c104: 0e143e0c    	mov.s	w12, v16[2]
+10000c108: 0e1c3e0d    	mov.s	w13, v16[3]
+10000c10c: 1e26020e    	fmov	w14, s16
+10000c110: 0e143e6f    	mov.s	w15, v19[2]
+10000c114: 0e1c3e70    	mov.s	w16, v19[3]
+10000c118: 1e260271    	fmov	w17, s19
+10000c11c: 1ace0a2e    	udiv	w14, w17, w14
+10000c120: 1e2701cb    	fmov	s11, w14
+10000c124: 4e0c1d6b    	mov.s	v11[1], w11
+10000c128: 1acc09eb    	udiv	w11, w15, w12
+10000c12c: 4e141d6b    	mov.s	v11[2], w11
+10000c130: 1acd0a0b    	udiv	w11, w16, w13
+10000c134: 4e1c1d6b    	mov.s	v11[3], w11
+10000c138: ad43c155    	ldp	q21, q16, [x10, #0x70]
+10000c13c: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c140: ad446113    	ldp	q19, q24, [x8, #0x80]
+10000c144: 0e0c3e6c    	mov.s	w12, v19[1]
+10000c148: 1acb098b    	udiv	w11, w12, w11
+10000c14c: 0e143e0c    	mov.s	w12, v16[2]
+10000c150: 0e1c3e0d    	mov.s	w13, v16[3]
+10000c154: 1e26020e    	fmov	w14, s16
+10000c158: 0e143e6f    	mov.s	w15, v19[2]
+10000c15c: 0e1c3e70    	mov.s	w16, v19[3]
+10000c160: 1e260271    	fmov	w17, s19
+10000c164: 1ace0a2e    	udiv	w14, w17, w14
+10000c168: 1e2701d6    	fmov	s22, w14
+10000c16c: 4e0c1d76    	mov.s	v22[1], w11
+10000c170: 1acc09eb    	udiv	w11, w15, w12
+10000c174: 4e141d76    	mov.s	v22[2], w11
+10000c178: 1acd0a0b    	udiv	w11, w16, w13
+10000c17c: 4e1c1d76    	mov.s	v22[3], w11
+10000c180: ad444157    	ldp	q23, q16, [x10, #0x80]
+10000c184: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c188: 0e0c3f0c    	mov.s	w12, v24[1]
+10000c18c: 1acb098b    	udiv	w11, w12, w11
+10000c190: 0e143e0c    	mov.s	w12, v16[2]
+10000c194: 0e143f0d    	mov.s	w13, v24[2]
+10000c198: 0e1c3e0e    	mov.s	w14, v16[3]
+10000c19c: 0e1c3f0f    	mov.s	w15, v24[3]
+10000c1a0: 1e260210    	fmov	w16, s16
+10000c1a4: 1e260311    	fmov	w17, s24
+10000c1a8: 1ad00a30    	udiv	w16, w17, w16
+10000c1ac: 1e270218    	fmov	s24, w16
+10000c1b0: 4e0c1d78    	mov.s	v24[1], w11
+10000c1b4: 1acc09ab    	udiv	w11, w13, w12
+10000c1b8: 4e141d78    	mov.s	v24[2], w11
+10000c1bc: 1ace09eb    	udiv	w11, w15, w14
+10000c1c0: 4e1c1d78    	mov.s	v24[3], w11
+10000c1c4: ad44c159    	ldp	q25, q16, [x10, #0x90]
+10000c1c8: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c1cc: ad457113    	ldp	q19, q28, [x8, #0xa0]
+10000c1d0: 0e0c3e6c    	mov.s	w12, v19[1]
+10000c1d4: 0e143e0d    	mov.s	w13, v16[2]
+10000c1d8: 0e1c3e0e    	mov.s	w14, v16[3]
+10000c1dc: 1acb098b    	udiv	w11, w12, w11
+10000c1e0: 1e26020c    	fmov	w12, s16
+10000c1e4: 0e143e6f    	mov.s	w15, v19[2]
+10000c1e8: 0e1c3e70    	mov.s	w16, v19[3]
+10000c1ec: 1e260271    	fmov	w17, s19
+10000c1f0: 1acc0a2c    	udiv	w12, w17, w12
+10000c1f4: 1e27019a    	fmov	s26, w12
+10000c1f8: 4e0c1d7a    	mov.s	v26[1], w11
+10000c1fc: 1acd09eb    	udiv	w11, w15, w13
+10000c200: 4e141d7a    	mov.s	v26[2], w11
+10000c204: 1ace0a0b    	udiv	w11, w16, w14
+10000c208: 4e1c1d7a    	mov.s	v26[3], w11
+10000c20c: ad45415b    	ldp	q27, q16, [x10, #0xa0]
+10000c210: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c214: 0e0c3f8c    	mov.s	w12, v28[1]
+10000c218: 1acb098b    	udiv	w11, w12, w11
+10000c21c: 0e143e0c    	mov.s	w12, v16[2]
+10000c220: 0e143f8d    	mov.s	w13, v28[2]
+10000c224: 0e1c3e0e    	mov.s	w14, v16[3]
+10000c228: 1e26020f    	fmov	w15, s16
+10000c22c: 0e1c3f90    	mov.s	w16, v28[3]
+10000c230: 1e260391    	fmov	w17, s28
+10000c234: 1acf0a2f    	udiv	w15, w17, w15
+10000c238: 1e2701fc    	fmov	s28, w15
+10000c23c: 4e0c1d7c    	mov.s	v28[1], w11
+10000c240: 1acc09ab    	udiv	w11, w13, w12
+10000c244: 4e141d7c    	mov.s	v28[2], w11
+10000c248: 1ace0a0b    	udiv	w11, w16, w14
+10000c24c: 4e1c1d7c    	mov.s	v28[3], w11
+10000c250: ad45c15e    	ldp	q30, q16, [x10, #0xb0]
+10000c254: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c258: ad467d13    	ldp	q19, q31, [x8, #0xc0]
+10000c25c: 0e0c3e6c    	mov.s	w12, v19[1]
+10000c260: 1acb098b    	udiv	w11, w12, w11
+10000c264: 0e143e0c    	mov.s	w12, v16[2]
+10000c268: 0e143e6d    	mov.s	w13, v19[2]
+10000c26c: 0e1c3e0e    	mov.s	w14, v16[3]
+10000c270: 0e1c3e6f    	mov.s	w15, v19[3]
+10000c274: 1e260210    	fmov	w16, s16
+10000c278: 1e260271    	fmov	w17, s19
+10000c27c: 1ad00a30    	udiv	w16, w17, w16
+10000c280: 1e27021d    	fmov	s29, w16
+10000c284: 4e0c1d7d    	mov.s	v29[1], w11
+10000c288: 1acc09ab    	udiv	w11, w13, w12
+10000c28c: 4e141d7d    	mov.s	v29[2], w11
+10000c290: 1ace09eb    	udiv	w11, w15, w14
+10000c294: 4e1c1d7d    	mov.s	v29[3], w11
+10000c298: ad464148    	ldp	q8, q16, [x10, #0xc0]
+10000c29c: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c2a0: 0e0c3fec    	mov.s	w12, v31[1]
+10000c2a4: 1acb098b    	udiv	w11, w12, w11
+10000c2a8: 0e143e0c    	mov.s	w12, v16[2]
+10000c2ac: 0e1c3e0d    	mov.s	w13, v16[3]
+10000c2b0: 1e26020e    	fmov	w14, s16
+10000c2b4: 0e143fef    	mov.s	w15, v31[2]
+10000c2b8: 0e1c3ff0    	mov.s	w16, v31[3]
+10000c2bc: 1e2603f1    	fmov	w17, s31
+10000c2c0: 1ace0a2e    	udiv	w14, w17, w14
+10000c2c4: 1e2701df    	fmov	s31, w14
+10000c2c8: 4e0c1d7f    	mov.s	v31[1], w11
+10000c2cc: 1acc09eb    	udiv	w11, w15, w12
+10000c2d0: 4e141d7f    	mov.s	v31[2], w11
+10000c2d4: 1acd0a0b    	udiv	w11, w16, w13
+10000c2d8: 4e1c1d7f    	mov.s	v31[3], w11
+10000c2dc: ad46c149    	ldp	q9, q16, [x10, #0xd0]
+10000c2e0: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c2e4: ad472913    	ldp	q19, q10, [x8, #0xe0]
+10000c2e8: 0e0c3e6c    	mov.s	w12, v19[1]
+10000c2ec: 1acb098b    	udiv	w11, w12, w11
+10000c2f0: 0e143e0c    	mov.s	w12, v16[2]
+10000c2f4: 0e1c3e0d    	mov.s	w13, v16[3]
+10000c2f8: 1e26020e    	fmov	w14, s16
+10000c2fc: 0e143e6f    	mov.s	w15, v19[2]
+10000c300: 0e1c3e70    	mov.s	w16, v19[3]
+10000c304: 1e260271    	fmov	w17, s19
+10000c308: 1ace0a2e    	udiv	w14, w17, w14
+10000c30c: 1e2701c5    	fmov	s5, w14
+10000c310: 4e0c1d65    	mov.s	v5[1], w11
+10000c314: 1acc09eb    	udiv	w11, w15, w12
+10000c318: 4e141d65    	mov.s	v5[2], w11
+10000c31c: 1acd0a0b    	udiv	w11, w16, w13
+10000c320: 4e1c1d65    	mov.s	v5[3], w11
+10000c324: ad474141    	ldp	q1, q16, [x10, #0xe0]
+10000c328: 0e0c3e0b    	mov.s	w11, v16[1]
+10000c32c: 0e0c3d4c    	mov.s	w12, v10[1]
+10000c330: 1acb098b    	udiv	w11, w12, w11
+10000c334: 0e143e0c    	mov.s	w12, v16[2]
+10000c338: 0e143d4d    	mov.s	w13, v10[2]
+10000c33c: 0e1c3e0e    	mov.s	w14, v16[3]
+10000c340: 0e1c3d4f    	mov.s	w15, v10[3]
+10000c344: 1e260210    	fmov	w16, s16
+10000c348: 1e260151    	fmov	w17, s10
+10000c34c: 1ad00a30    	udiv	w16, w17, w16
+10000c350: 1e270200    	fmov	s0, w16
+10000c354: 3dc00d30    	ldr	q16, [x9, #0x30]
+10000c358: 4ea48613    	add.4s	v19, v16, v4
+10000c35c: 4eb31e62    	mov.16b	v2, v19
+10000c360: 6eac9602    	mls.4s	v2, v16, v12
+10000c364: 3dc01124    	ldr	q4, [x9, #0x40]
+10000c368: 4ea68490    	add.4s	v16, v4, v6
+10000c36c: 4eb01e0d    	mov.16b	v13, v16
+10000c370: 6ea7948d    	mls.4s	v13, v4, v7
+10000c374: 3dc01524    	ldr	q4, [x9, #0x50]
+10000c378: 4ea38494    	add.4s	v20, v4, v3
+10000c37c: 4eb41e86    	mov.16b	v6, v20
+10000c380: 6eb29486    	mls.4s	v6, v4, v18
+10000c384: ad431123    	ldp	q3, q4, [x9, #0x60]
+10000c388: 4eb1846e    	add.4s	v14, v3, v17
+10000c38c: 4eae1dca    	mov.16b	v10, v14
+10000c390: 6eaf946a    	mls.4s	v10, v3, v15
+10000c394: 4eab8483    	add.4s	v3, v4, v11
+10000c398: 4ea31c6f    	mov.16b	v15, v3
+10000c39c: 6eb5948f    	mls.4s	v15, v4, v21
+10000c3a0: 3dc02124    	ldr	q4, [x9, #0x80]
+10000c3a4: 4eb6848b    	add.4s	v11, v4, v22
+10000c3a8: 4eab1d72    	mov.16b	v18, v11
+10000c3ac: 6eb79492    	mls.4s	v18, v4, v23
+10000c3b0: 3dc02524    	ldr	q4, [x9, #0x90]
+10000c3b4: 4eb8848c    	add.4s	v12, v4, v24
+10000c3b8: 4eac1d98    	mov.16b	v24, v12
+10000c3bc: 6eb99498    	mls.4s	v24, v4, v25
+10000c3c0: 3dc02924    	ldr	q4, [x9, #0xa0]
+10000c3c4: 4eba8495    	add.4s	v21, v4, v26
+10000c3c8: 4eb51ea7    	mov.16b	v7, v21
+10000c3cc: 6ebb9487    	mls.4s	v7, v4, v27
+10000c3d0: ad45c524    	ldp	q4, q17, [x9, #0xb0]
+10000c3d4: 4ebc8497    	add.4s	v23, v4, v28
+10000c3d8: 4eb71ef6    	mov.16b	v22, v23
+10000c3dc: 6ebe9496    	mls.4s	v22, v4, v30
+10000c3e0: 4ebd863b    	add.4s	v27, v17, v29
+10000c3e4: 4ebb1f64    	mov.16b	v4, v27
+10000c3e8: 6ea89624    	mls.4s	v4, v17, v8
+10000c3ec: 3dc03539    	ldr	q25, [x9, #0xd0]
+10000c3f0: 4ebf873c    	add.4s	v28, v25, v31
+10000c3f4: 4ebc1f91    	mov.16b	v17, v28
+10000c3f8: 6ea99731    	mls.4s	v17, v25, v9
+10000c3fc: ad477539    	ldp	q25, q29, [x9, #0xe0]
+10000c400: 4ea58725    	add.4s	v5, v25, v5
+10000c404: 3d8003e5    	str	q5, [sp]
+10000c408: 6ea19725    	mls.4s	v5, v25, v1
+10000c40c: 4e0c1d60    	mov.s	v0[1], w11
+10000c410: 1acc09ab    	udiv	w11, w13, w12
+10000c414: 4e141d60    	mov.s	v0[2], w11
+10000c418: 1ace09eb    	udiv	w11, w15, w14
+10000c41c: 4e1c1d60    	mov.s	v0[3], w11
+10000c420: 4ea087ba    	add.4s	v26, v29, v0
+10000c424: 3dc03d40    	ldr	q0, [x10, #0xf0]
+10000c428: 4eba1f59    	mov.16b	v25, v26
+10000c42c: 6ea097b9    	mls.4s	v25, v29, v0
+10000c430: ad407520    	ldp	q0, q29, [x9]
+10000c434: 3dc007e1    	ldr	q1, [sp, #0x10]
+10000c438: 4ea1841e    	add.4s	v30, v0, v1
+10000c43c: ad41a7e1    	ldp	q1, q9, [sp, #0x30]
+10000c440: 0e0c3d2b    	mov.s	w11, v9[1]
+10000c444: 0e0c3c2c    	mov.s	w12, v1[1]
+10000c448: 1acb098b    	udiv	w11, w12, w11
+10000c44c: 1e26012c    	fmov	w12, s9
+10000c450: 0e143c2d    	mov.s	w13, v1[2]
+10000c454: 0e1c3c2e    	mov.s	w14, v1[3]
+10000c458: 1e26002f    	fmov	w15, s1
+10000c45c: 1acc09ec    	udiv	w12, w15, w12
+10000c460: 1e27019f    	fmov	s31, w12
+10000c464: 4e0c1d7f    	mov.s	v31[1], w11
+10000c468: 4ebe1fc8    	mov.16b	v8, v30
+10000c46c: 3dc00be1    	ldr	q1, [sp, #0x20]
+10000c470: 6ea19408    	mls.4s	v8, v0, v1
+10000c474: 0e143d2b    	mov.s	w11, v9[2]
+10000c478: 1acb09ab    	udiv	w11, w13, w11
+10000c47c: 4e141d7f    	mov.s	v31[2], w11
+10000c480: 0e1c3d2b    	mov.s	w11, v9[3]
+10000c484: 4ea91d21    	mov.16b	v1, v9
+10000c488: 1acb09cb    	udiv	w11, w14, w11
+10000c48c: 4e1c1d7f    	mov.s	v31[3], w11
+10000c490: 4ebf87bf    	add.4s	v31, v29, v31
+10000c494: 4ebf1fe9    	mov.16b	v9, v31
+10000c498: 6ea197a9    	mls.4s	v9, v29, v1
+10000c49c: 6ea0b800    	neg.4s	v0, v0
+10000c4a0: 4ea897c0    	mla.4s	v0, v30, v8
+10000c4a4: ad007d1e    	stp	q30, q31, [x8]
+10000c4a8: 3dc0091e    	ldr	q30, [x8, #0x20]
+10000c4ac: 6ea0bbbd    	neg.4s	v29, v29
+10000c4b0: 4ea997fd    	mla.4s	v29, v31, v9
+10000c4b4: 3dc0095f    	ldr	q31, [x10, #0x20]
+10000c4b8: 0e0c3fcb    	mov.s	w11, v30[1]
+10000c4bc: 0e143fcc    	mov.s	w12, v30[2]
+10000c4c0: 0e1c3fcd    	mov.s	w13, v30[3]
+10000c4c4: 1e2603ce    	fmov	w14, s30
+10000c4c8: 3dc0093e    	ldr	q30, [x9, #0x20]
+10000c4cc: 3d800148    	str	q8, [x10]
+10000c4d0: 3dc00d28    	ldr	q8, [x9, #0x30]
+10000c4d4: 1e2603ef    	fmov	w15, s31
+10000c4d8: 1acf09ce    	udiv	w14, w14, w15
+10000c4dc: 3d800549    	str	q9, [x10, #0x10]
+10000c4e0: 1e2701c9    	fmov	s9, w14
+10000c4e4: 0e0c3fee    	mov.s	w14, v31[1]
+10000c4e8: 1ace096b    	udiv	w11, w11, w14
+10000c4ec: 4e0c1d69    	mov.s	v9[1], w11
+10000c4f0: ad007520    	stp	q0, q29, [x9]
+10000c4f4: 0e143feb    	mov.s	w11, v31[2]
+10000c4f8: 1acb098b    	udiv	w11, w12, w11
+10000c4fc: 4e141d69    	mov.s	v9[2], w11
+10000c500: 0e1c3feb    	mov.s	w11, v31[3]
+10000c504: 1acb09ab    	udiv	w11, w13, w11
+10000c508: 4e1c1d69    	mov.s	v9[3], w11
+10000c50c: 4ea987dd    	add.4s	v29, v30, v9
+10000c510: 4ebd1fa9    	mov.16b	v9, v29
+10000c514: 6ebf97c9    	mls.4s	v9, v30, v31
+10000c518: ad427d20    	ldp	q0, q31, [x9, #0x40]
+10000c51c: 6ea0bbde    	neg.4s	v30, v30
+10000c520: 4ea997be    	mla.4s	v30, v29, v9
+10000c524: 3d80091d    	str	q29, [x8, #0x20]
+10000c528: 3dc0193d    	ldr	q29, [x9, #0x60]
+10000c52c: 3d800d13    	str	q19, [x8, #0x30]
+10000c530: 6ea0b908    	neg.4s	v8, v8
+10000c534: 4ea29668    	mla.4s	v8, v19, v2
+10000c538: 3dc01d33    	ldr	q19, [x9, #0x70]
+10000c53c: 3d800949    	str	q9, [x10, #0x20]
+10000c540: 3dc02129    	ldr	q9, [x9, #0x80]
+10000c544: 3d800d42    	str	q2, [x10, #0x30]
+10000c548: ad01213e    	stp	q30, q8, [x9, #0x20]
+10000c54c: ad44f921    	ldp	q1, q30, [x9, #0x90]
+10000c550: 3dc02d28    	ldr	q8, [x9, #0xb0]
+10000c554: 6ea0b800    	neg.4s	v0, v0
+10000c558: 4ead9600    	mla.4s	v0, v16, v13
+10000c55c: 3d801110    	str	q16, [x8, #0x40]
+10000c560: 3dc03130    	ldr	q16, [x9, #0xc0]
+10000c564: 3d801514    	str	q20, [x8, #0x50]
+10000c568: 6ea0bbff    	neg.4s	v31, v31
+10000c56c: 4ea6969f    	mla.4s	v31, v20, v6
+10000c570: 3dc03534    	ldr	q20, [x9, #0xd0]
+10000c574: 3d80114d    	str	q13, [x10, #0x40]
+10000c578: 3dc0392d    	ldr	q13, [x9, #0xe0]
+10000c57c: 3d801546    	str	q6, [x10, #0x50]
+10000c580: ad027d20    	stp	q0, q31, [x9, #0x40]
+10000c584: 6ea0bba0    	neg.4s	v0, v29
+10000c588: 4eaa95c0    	mla.4s	v0, v14, v10
+10000c58c: ad030d0e    	stp	q14, q3, [x8, #0x60]
+10000c590: 6ea0ba62    	neg.4s	v2, v19
+10000c594: 4eaf9462    	mla.4s	v2, v3, v15
+10000c598: ad033d4a    	stp	q10, q15, [x10, #0x60]
+10000c59c: ad030920    	stp	q0, q2, [x9, #0x60]
+10000c5a0: 6ea0b920    	neg.4s	v0, v9
+10000c5a4: 4eb29560    	mla.4s	v0, v11, v18
+10000c5a8: ad04310b    	stp	q11, q12, [x8, #0x80]
+10000c5ac: 6ea0b821    	neg.4s	v1, v1
+10000c5b0: 4eb89581    	mla.4s	v1, v12, v24
+10000c5b4: ad046152    	stp	q18, q24, [x10, #0x80]
+10000c5b8: ad040520    	stp	q0, q1, [x9, #0x80]
+10000c5bc: 6ea0bbc0    	neg.4s	v0, v30
+10000c5c0: 4ea796a0    	mla.4s	v0, v21, v7
+10000c5c4: ad055d15    	stp	q21, q23, [x8, #0xa0]
+10000c5c8: 6ea0b901    	neg.4s	v1, v8
+10000c5cc: 4eb696e1    	mla.4s	v1, v23, v22
+10000c5d0: ad055947    	stp	q7, q22, [x10, #0xa0]
+10000c5d4: ad050520    	stp	q0, q1, [x9, #0xa0]
+10000c5d8: 6ea0ba00    	neg.4s	v0, v16
+10000c5dc: 4ea49760    	mla.4s	v0, v27, v4
+10000c5e0: ad06711b    	stp	q27, q28, [x8, #0xc0]
+10000c5e4: 6ea0ba81    	neg.4s	v1, v20
+10000c5e8: 4eb19781    	mla.4s	v1, v28, v17
+10000c5ec: ad064544    	stp	q4, q17, [x10, #0xc0]
+10000c5f0: ad060520    	stp	q0, q1, [x9, #0xc0]
+10000c5f4: 6ea0b9a0    	neg.4s	v0, v13
+10000c5f8: 3dc003e1    	ldr	q1, [sp]
+10000c5fc: 4ea59420    	mla.4s	v0, v1, v5
+10000c600: ad076901    	stp	q1, q26, [x8, #0xe0]
+10000c604: ad076545    	stp	q5, q25, [x10, #0xe0]
+10000c608: 3dc03d21    	ldr	q1, [x9, #0xf0]
+10000c60c: 6ea0b821    	neg.4s	v1, v1
+10000c610: 4eb99741    	mla.4s	v1, v26, v25
+10000c614: ad070520    	stp	q0, q1, [x9, #0xe0]
+10000c618: 14000014    	b	0x10000c668 <__ZN4heat4SimdILm64EE7RunImplEv+0x738>
+10000c61c: d280000b    	mov	x11, #0x0               ; =0
+10000c620: b86b690c    	ldr	w12, [x8, x11]
+10000c624: b86b694d    	ldr	w13, [x10, x11]
+10000c628: 1acd098c    	udiv	w12, w12, w13
+10000c62c: b86b692d    	ldr	w13, [x9, x11]
+10000c630: 0b0c01ac    	add	w12, w13, w12
+10000c634: b82b690c    	str	w12, [x8, x11]
+10000c638: b86b694d    	ldr	w13, [x10, x11]
+10000c63c: b86b692e    	ldr	w14, [x9, x11]
+10000c640: 1b0db1cc    	msub	w12, w14, w13, w12
+10000c644: b82b694c    	str	w12, [x10, x11]
+10000c648: b86b690d    	ldr	w13, [x8, x11]
+10000c64c: b86b692e    	ldr	w14, [x9, x11]
+10000c650: 4b0e03ee    	neg	w14, w14
+10000c654: 1b0c39ac    	madd	w12, w13, w12, w14
+10000c658: b82b692c    	str	w12, [x9, x11]
+10000c65c: 9100116b    	add	x11, x11, #0x4
+10000c660: f104017f    	cmp	x11, #0x100
+10000c664: 54fffde1    	b.ne	0x10000c620 <__ZN4heat4SimdILm64EE7RunImplEv+0x6f0>
+10000c668: 6d4823e9    	ldp	d9, d8, [sp, #0x80]
+10000c66c: 6d472beb    	ldp	d11, d10, [sp, #0x70]
+10000c670: 6d4633ed    	ldp	d13, d12, [sp, #0x60]
+10000c674: 6d453bef    	ldp	d15, d14, [sp, #0x50]
+10000c678: 910243ff    	add	sp, sp, #0x90
+10000c67c: d65f03c0    	ret
++ sudo bazel-bin/heat/heat --method arithmetic_integer --cores 3 --runs 2 --bm
+I20231225 12:33:17.109031 2048052 heat.cpp:182] Emit heat using method arithmetic_integer in 3 core(s)
+I20231225 12:33:17.109252 2048052 heat.cpp:185] Running in benchmark mode
+I20231225 12:33:17.109257 2048052 heat.cpp:107] Getting baseline temperature and power usage. Please check to make sure the numbers are stable.
+I20231225 12:33:17.109261 2048052 heat.cpp:108] Will be finished in 1min
+I20231225 12:34:18.904893 2048052 heat.cpp:111] Baseline temp: sample=12 avg=28.797087 std=0.147613 min=28.631767 max=29.101740 p10=28.653492 p50=28.740334 p90=29.049601
+I20231225 12:34:18.905055 2048052 heat.cpp:112] Baseline watt: sample=12 avg=5.130663 std=2.702390 min=1.933153 max=7.414600 p10=1.933153 p50=7.414600 p90=7.414600
+I20231225 12:34:18.905256 2048052 heat.cpp:125] Run #0
+I20231225 12:37:22.467335 2048052 heat.cpp:162] Initial Temp: 28.4928
+I20231225 12:37:22.467352 2048052 heat.cpp:163]   5s:  +32.0612
+I20231225 12:37:22.467360 2048052 heat.cpp:164]   10s: +39.0589
+I20231225 12:37:22.467365 2048052 heat.cpp:165]   15s: +43.2745
+I20231225 12:37:22.467368 2048052 heat.cpp:166] Temps: sample=30 avg=84.193733 std=7.955636 min=60.554039 max=93.205269 p10=73.228172 p50=86.615562 p90=92.692574
+I20231225 12:37:22.467378 2048052 heat.cpp:167] Watts: sample=9 avg=18.475634 std=0.345015 min=17.830183 max=18.660048 p10=17.830183 p50=18.660048 p90=18.660048
+I20231225 12:37:22.467383 2048052 heat.cpp:125] Run #1
+I20231225 12:40:26.177621 2048052 heat.cpp:162] Initial Temp: 42.7978
+I20231225 12:40:26.177642 2048052 heat.cpp:163]   5s:  +33.2159
+I20231225 12:40:26.177647 2048052 heat.cpp:164]   10s: +37.7197
+I20231225 12:40:26.177652 2048052 heat.cpp:165]   15s: +41.4276
+I20231225 12:40:26.177656 2048052 heat.cpp:166] Temps: sample=30 avg=92.704803 std=5.016379 min=76.013702 max=97.290497 p10=86.488518 p50=94.531639 p90=96.844505
+I20231225 12:40:26.177664 2048052 heat.cpp:167] Watts: sample=9 avg=18.501396 std=0.239087 min=18.416847 max=19.177782 p10=18.416847 p50=18.416847 p90=19.177782
+I20231225 12:40:27.187680 2048510 method.h:51] Elapsed: 1.53517e+11
+I20231225 12:40:27.187680 2048511 method.h:51] Elapsed: 1.5351e+11
+I20231225 12:40:27.187772 2048510 method.h:52] Instruction: 2.33653e+12
+I20231225 12:40:27.187685 2048509 method.h:51] Elapsed: 1.5352e+11
+I20231225 12:40:27.187801 2048510 method.h:53] Cycle: 4.90481e+11
+I20231225 12:40:27.187810 2048511 method.h:52] Instruction: 2.33589e+12
+I20231225 12:40:27.187825 2048510 method.h:54] IPC: 4.76375
+I20231225 12:40:27.187844 2048511 method.h:53] Cycle: 4.90471e+11
+I20231225 12:40:27.187839 2048509 method.h:52] Instruction: 2.33633e+12
+I20231225 12:40:27.187870 2048511 method.h:54] IPC: 4.76254
+I20231225 12:40:27.187882 2048509 method.h:53] Cycle: 4.90485e+11
+I20231225 12:40:27.187908 2048509 method.h:54] IPC: 4.76332
+loaded db: a15 (Apple A15)
+loaded db: a15 (Apple A15)
+loaded db: a15 (Apple A15)
++ sudo bazel-bin/heat/heat --method simd16 --cores 4 --bm --runs 2
+I20231225 12:40:27.223959 2051023 heat.cpp:182] Emit heat using method simd16 in 4 core(s)
+I20231225 12:40:27.224833 2051023 heat.cpp:185] Running in benchmark mode
+I20231225 12:40:27.224843 2051023 heat.cpp:107] Getting baseline temperature and power usage. Please check to make sure the numbers are stable.
+I20231225 12:40:27.224851 2051023 heat.cpp:108] Will be finished in 1min
+I20231225 12:41:29.115442 2051023 heat.cpp:111] Baseline temp: sample=12 avg=49.754654 std=9.259345 min=41.890213 max=76.227486 p10=42.374157 p50=47.142365 p90=58.094597
+I20231225 12:41:29.115604 2051023 heat.cpp:112] Baseline watt: sample=12 avg=8.860967 std=8.076193 min=2.035338 max=18.416847 p10=2.035338 p50=2.035338 p90=18.416847
+I20231225 12:41:29.115833 2051023 heat.cpp:125] Run #0
+I20231225 12:44:33.427866 2051023 heat.cpp:162] Initial Temp: 38.577
+I20231225 12:44:33.427913 2051023 heat.cpp:163]   5s:  +20.0647
+I20231225 12:44:33.427923 2051023 heat.cpp:164]   10s: +22.7456
+I20231225 12:44:33.427928 2051023 heat.cpp:165]   15s: +24.9172
+I20231225 12:44:33.427933 2051023 heat.cpp:166] Temps: sample=30 avg=68.298416 std=2.929852 min=58.641716 max=70.979248 p10=64.899048 p50=69.531265 p90=70.711472
+I20231225 12:44:33.427946 2051023 heat.cpp:167] Watts: sample=9 avg=11.653729 std=0.000000 min=11.653729 max=11.653729 p10=11.653729 p50=11.653729 p90=11.653729
+I20231225 12:44:33.427953 2051023 heat.cpp:125] Run #1
+I20231225 12:47:37.679733 2051023 heat.cpp:162] Initial Temp: 41.2947
+I20231225 12:47:37.679773 2051023 heat.cpp:163]   5s:  +19.6213
+I20231225 12:47:37.679785 2051023 heat.cpp:164]   10s: +22.6355
+I20231225 12:47:37.679790 2051023 heat.cpp:165]   15s: +23.9882
+I20231225 12:47:37.679795 2051023 heat.cpp:166] Temps: sample=30 avg=69.402290 std=2.454740 min=60.916039 max=71.730644 p10=66.443520 p50=70.199478 p90=71.524887
+I20231225 12:47:37.679805 2051023 heat.cpp:167] Watts: sample=9 avg=11.361852 std=0.000000 min=11.361852 max=11.361852 p10=11.361852 p50=11.361852 p90=11.361852
+I20231225 12:47:38.684792 2051461 method.h:51] Elapsed: 1.54047e+11
+I20231225 12:47:38.684792 2051460 method.h:51] Elapsed: 1.54053e+11
+I20231225 12:47:38.684866 2051461 method.h:52] Instruction: 2.9886e+11
+I20231225 12:47:38.684774 2051463 method.h:51] Elapsed: 1.5409e+11
+I20231225 12:47:38.684903 2051461 method.h:53] Cycle: 4.92584e+11
+I20231225 12:47:38.684908 2051460 method.h:52] Instruction: 2.96827e+11
+I20231225 12:47:38.684927 2051461 method.h:54] IPC: 0.606719
+I20231225 12:47:38.684931 2051463 method.h:52] Instruction: 2.98955e+11
+I20231225 12:47:38.684942 2051460 method.h:53] Cycle: 4.92562e+11
+I20231225 12:47:38.684962 2051463 method.h:53] Cycle: 4.92652e+11
+I20231225 12:47:38.684965 2051460 method.h:54] IPC: 0.602619
+I20231225 12:47:38.684988 2051463 method.h:54] IPC: 0.606828
+I20231225 12:47:38.684810 2051462 method.h:51] Elapsed: 1.54062e+11
+I20231225 12:47:38.685038 2051462 method.h:52] Instruction: 2.95432e+11
+I20231225 12:47:38.685067 2051462 method.h:53] Cycle: 4.92634e+11
+I20231225 12:47:38.685089 2051462 method.h:54] IPC: 0.599699
+loaded db: a15 (Apple A15)
+loaded db: a15 (Apple A15)
+loaded db: a15 (Apple A15)
+loaded db: a15 (Apple A15)

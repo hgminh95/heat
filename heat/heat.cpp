@@ -12,6 +12,7 @@
 DEFINE_bool(bm, false, "Run in benchmark mode, display the temparature and power consumption");
 DEFINE_string(method, "simple", "Method used to heat up your laptop");
 DEFINE_int32(cores, 1, "Number of cores used");
+DEFINE_int32(runs, 2, "Number of runs - only in bm mode");
 
 using namespace std::literals::chrono_literals;
 
@@ -89,13 +90,13 @@ std::pair<Stats, Stats> GetBaseline() {
   std::vector<float> temps;
   std::vector<float> watts;
 
-  // Run in 3 minutes
+  // Run in 1 minutes
   while (1) {
     temps.push_back(cpu_info.GetCpuTemp());
     watts.push_back(cpu_info.GetAdapterPowerWatt());
     std::this_thread::sleep_for(std::chrono::seconds(5));
 
-    if (std::chrono::system_clock::now() - start_time > 2min)
+    if (std::chrono::system_clock::now() - start_time > 1min)
       break;
   }
 
@@ -104,7 +105,7 @@ std::pair<Stats, Stats> GetBaseline() {
 
 void RunBenchmark(heat::IHeatMethod *method) {
   LOG(INFO) << "Getting baseline temperature and power usage. Please check to make sure the numbers are stable.";
-  LOG(INFO) << "Will be finished in 2min";
+  LOG(INFO) << "Will be finished in 1min";
   auto [temps, watts] = GetBaseline();
 
   LOG(INFO) << "Baseline temp: " << temps.ToStr();
@@ -120,7 +121,7 @@ void RunBenchmark(heat::IHeatMethod *method) {
   }
 
   heat::CpuInfo cpu_info;
-  for (int i = 0; i < 5; ++i) {
+  for (int i = 0; i < FLAGS_runs; ++i) {
     LOG(INFO) << "Run #" << i;
     // Wait for 30s to cool down
     std::this_thread::sleep_for(std::chrono::seconds(30));

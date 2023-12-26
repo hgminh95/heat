@@ -1,0 +1,9 @@
+cc_library(
+    name = "lemire_pc",
+    hdrs = glob([
+        "*.h",
+    ]),
+    include_prefix = "lemire_pc",
+    visibility = ["//visibility:public"],
+)
+
